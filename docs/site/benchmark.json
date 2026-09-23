@@ -1,0 +1,106 @@
+{
+  "scope": "Nine deterministic controller runs on three public-data method-transfer demos. Output-contract drift and semantic failures are deliberately injected. No Jev/LLM call; not a scientific benchmark or paper-table reproduction.",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "runs": [
+    {
+      "case": "temperature",
+      "arm": "strict",
+      "status": "unresolved",
+      "value": null,
+      "metric": null,
+      "steps": 3,
+      "repairs": 0,
+      "seconds": 1.532,
+      "report": "temperature-strict/report.html"
+    },
+    {
+      "case": "temperature",
+      "arm": "rules",
+      "status": "verified",
+      "value": 0.1911526124529649,
+      "metric": "nll",
+      "steps": 6,
+      "repairs": 1,
+      "seconds": 1.515,
+      "report": "temperature-rules/report.html"
+    },
+    {
+      "case": "temperature",
+      "arm": "negative",
+      "status": "unresolved",
+      "value": 27.20605119278735,
+      "metric": "nll",
+      "steps": 6,
+      "repairs": 1,
+      "seconds": 1.593,
+      "report": "temperature-negative/report.html"
+    },
+    {
+      "case": "conformal",
+      "arm": "strict",
+      "status": "unresolved",
+      "value": null,
+      "metric": null,
+      "steps": 3,
+      "repairs": 0,
+      "seconds": 1.531,
+      "report": "conformal-strict/report.html"
+    },
+    {
+      "case": "conformal",
+      "arm": "rules",
+      "status": "verified",
+      "value": 0.8378378378378378,
+      "metric": "coverage",
+      "steps": 6,
+      "repairs": 1,
+      "seconds": 1.515,
+      "report": "conformal-rules/report.html"
+    },
+    {
+      "case": "conformal",
+      "arm": "negative",
+      "status": "unresolved",
+      "value": 0.0,
+      "metric": "coverage",
+      "steps": 6,
+      "repairs": 1,
+      "seconds": 1.516,
+      "report": "conformal-negative/report.html"
+    },
+    {
+      "case": "svm",
+      "arm": "strict",
+      "status": "verified",
+      "value": 0.98,
+      "metric": "accuracy",
+      "steps": 3,
+      "repairs": 0,
+      "seconds": 1.532,
+      "report": "svm-strict/report.html"
+    },
+    {
+      "case": "svm",
+      "arm": "rules",
+      "status": "verified",
+      "value": 0.98,
+      "metric": "accuracy",
+      "steps": 3,
+      "repairs": 0,
+      "seconds": 1.532,
+      "report": "svm-rules/report.html"
+    },
+    {
+      "case": "svm",
+      "arm": "negative",
+      "status": "unresolved",
+      "value": 0.0,
+      "metric": "accuracy",
+      "steps": 3,
+      "repairs": 0,
+      "seconds": 1.562,
+      "report": "svm-negative/report.html"
+    }
+  ]
+}

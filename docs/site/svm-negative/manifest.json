@@ -1,0 +1,46 @@
+{
+  "id": "svm-negative",
+  "title": "RBF SVM \u00b7 handwritten digits \u00b7 injected wrong output",
+  "scope": "Method-transfer demo on a different small dataset; not a replication of the cited paper's reported tables. Artifact path/column drift is intentionally injected. Acceptance bounds are this demo's engineering checks, not paper claims.",
+  "source": "https://doi.org/10.1007/BF00994018",
+  "command": [
+    "{python}",
+    "experiment.py",
+    "svm",
+    "--broken"
+  ],
+  "inputs": [
+    "experiment.py",
+    "train.csv",
+    "calibration.csv",
+    "test.csv"
+  ],
+  "truth": "truth.csv",
+  "metric": "accuracy",
+  "acceptance": {
+    "min": 0.9,
+    "max": 1.0
+  },
+  "artifact": {
+    "path": "predictions.csv",
+    "columns": {
+      "id": "id",
+      "prediction": "prediction"
+    }
+  },
+  "timeout_seconds": 120,
+  "dataset": "sklearn packaged UCI optical digits",
+  "versions": {
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  },
+  "split_seeds": [
+    1729,
+    1730
+  ],
+  "split_sizes": {
+    "train": 898,
+    "calibration": 449,
+    "test": 450
+  }
+}

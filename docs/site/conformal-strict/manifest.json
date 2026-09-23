@@ -1,0 +1,46 @@
+{
+  "id": "conformal",
+  "title": "Split conformal \u00b7 diabetes regression",
+  "scope": "Method-transfer demo on a different small dataset; not a replication of the cited paper's reported tables. Artifact path/column drift is intentionally injected. Acceptance bounds are this demo's engineering checks, not paper claims.",
+  "source": "https://arxiv.org/abs/2107.07511",
+  "command": [
+    "{python}",
+    "experiment.py",
+    "conformal"
+  ],
+  "inputs": [
+    "experiment.py",
+    "train.csv",
+    "calibration.csv",
+    "test.csv"
+  ],
+  "truth": "truth.csv",
+  "metric": "coverage",
+  "acceptance": {
+    "min": 0.8,
+    "max": 1.0
+  },
+  "artifact": {
+    "path": "intervals.csv",
+    "columns": {
+      "id": "id",
+      "lower": "lower",
+      "upper": "upper"
+    }
+  },
+  "timeout_seconds": 120,
+  "dataset": "sklearn packaged diabetes",
+  "versions": {
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  },
+  "split_seeds": [
+    1729,
+    1730
+  ],
+  "split_sizes": {
+    "train": 220,
+    "calibration": 111,
+    "test": 111
+  }
+}

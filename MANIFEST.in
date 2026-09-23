@@ -1,0 +1,3 @@
+include README.zh-CN.md CITATION.cff CONTRIBUTING.md requirements-demo.txt
+recursive-include examples *.py *.html
+include docs/methodology.md docs/manifest.md docs/research-notes.md docs/DATA.md

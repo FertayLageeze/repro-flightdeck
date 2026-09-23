@@ -1,0 +1,3 @@
+* text=auto eol=lf
+# Evidence hashes cover original bytes, including CSV line endings.
+docs/site/** -text

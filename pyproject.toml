@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "repro-flightdeck"
+version = "0.1.0"
+description = "An evidence-first experiment agent: execute, recover artifact contracts, independently verify, replay."
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Yongjian Wang"}]
+dependencies = []
+
+[project.optional-dependencies]
+demo = ["numpy>=1.26,<3", "scipy>=1.11,<2", "scikit-learn>=1.5,<2"]
+dev = ["pytest>=8,<10", "build>=1,<2"]
+
+[project.scripts]
+repro-flightdeck = "flightdeck.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+flightdeck = ["report.html"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

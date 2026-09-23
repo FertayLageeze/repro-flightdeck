@@ -1,0 +1,45 @@
+{
+  "id": "temperature",
+  "title": "Temperature scaling \u00b7 binary digits",
+  "scope": "Method-transfer demo on a different small dataset; not a replication of the cited paper's reported tables. Artifact path/column drift is intentionally injected. Acceptance bounds are this demo's engineering checks, not paper claims.",
+  "source": "https://proceedings.mlr.press/v70/guo17a.html",
+  "command": [
+    "{python}",
+    "experiment.py",
+    "temperature"
+  ],
+  "inputs": [
+    "experiment.py",
+    "train.csv",
+    "calibration.csv",
+    "test.csv"
+  ],
+  "truth": "truth.csv",
+  "metric": "nll",
+  "acceptance": {
+    "min": 0,
+    "max": 0.35
+  },
+  "artifact": {
+    "path": "probabilities.csv",
+    "columns": {
+      "id": "id",
+      "probability": "probability"
+    }
+  },
+  "timeout_seconds": 120,
+  "dataset": "sklearn packaged UCI optical digits",
+  "versions": {
+    "numpy": "2.5.3",
+    "sklearn": "1.9.1"
+  },
+  "split_seeds": [
+    1729,
+    1730
+  ],
+  "split_sizes": {
+    "train": 178,
+    "calibration": 89,
+    "test": 90
+  }
+}

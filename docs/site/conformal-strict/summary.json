@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "id": "conformal",
+  "title": "Split conformal · diabetes regression",
+  "scope": "Method-transfer demo on a different small dataset; not a replication of the cited paper's reported tables. Artifact path/column drift is intentionally injected. Acceptance bounds are this demo's engineering checks, not paper claims.",
+  "source": "https://arxiv.org/abs/2107.07511",
+  "status": "unresolved",
+  "policy": "strict (no recovery baseline)",
+  "created_utc": "2026-09-23T07:49:30.069631+00:00",
+  "result": null,
+  "failure": "ContractError: Artifact columns do not match the metric contract",
+  "binding": {
+    "path": "intervals.csv",
+    "columns": {
+      "id": "id",
+      "lower": "lower",
+      "upper": "upper"
+    }
+  },
+  "protocol_sha256": "941e96e6eea57c1d371ff5b3c8a6e85b81a73d346f7812dd7c942c6d7752ba3b",
+  "trace_head": "22ed1be09247198c8595984c4c9bb1ce67da121b1328772c067a5a39c20829ad",
+  "elapsed_s": 1.531,
+  "events": [
+    {
+      "seq": 0,
+      "kind": "intake",
+      "elapsed_s": 0.0,
+      "data": {
+        "protocol_sha256": "941e96e6eea57c1d371ff5b3c8a6e85b81a73d346f7812dd7c942c6d7752ba3b",
+        "inputs": {
+          "experiment.py": "afd989328ebc66389fc518e0342027a20c87527f1f70ae3119b154aaebfbb7d2",
+          "train.csv": "927137a16e4fd9cd53b7bc800ffb4d7a9f1ed70905d07ef7eeb17e1e5b0c6042",
+          "calibration.csv": "c64df5dedc92b35f59f7c0c6bd37a7a9134d9000cd1023ef29ccbd61c842122f",
+          "test.csv": "b25854475daad5efca52f1d263c6e0d10e55610d4fd531b44dd8d91ab32c0665"
+        },
+        "truth_sha256": "e6524246e0893e7ce40eef30e39f6bbb81113fae98b0cd15f2df146e92a2ec29"
+      },
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sha256": "3dba9de65c7767652e1fb2867efc8c9e1a021c7bedc36c83c31de5cad20e2ef7"
+    },
+    {
+      "seq": 1,
+      "kind": "decision",
+      "elapsed_s": 0.031,
+      "data": {
+        "step": 0,
+        "action": {
+          "action": "execute"
+        },
+        "policy": {
+          "name": "strict (no recovery baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "3dba9de65c7767652e1fb2867efc8c9e1a021c7bedc36c83c31de5cad20e2ef7",
+      "sha256": "85e5e79dfc416ff1eedfeb50d77af110ef21f773410a075a790701b9c6368abe"
+    },
+    {
+      "seq": 2,
+      "kind": "execution",
+      "elapsed_s": 1.516,
+      "data": {
+        "argv": [
+          "{python}",
+          "experiment.py",
+          "conformal"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "0397b19420352f4043c3be0049e7e809a70f2d027fb237c3a8d0d3b1ee4ef8cd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "previous": "85e5e79dfc416ff1eedfeb50d77af110ef21f773410a075a790701b9c6368abe",
+      "sha256": "1907ad00bd8e913f43edb4bbf5345e8947a526568c94c18d1b9feec8684cd308"
+    },
+    {
+      "seq": 3,
+      "kind": "decision",
+      "elapsed_s": 1.516,
+      "data": {
+        "step": 1,
+        "action": {
+          "action": "verify"
+        },
+        "policy": {
+          "name": "strict (no recovery baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "1907ad00bd8e913f43edb4bbf5345e8947a526568c94c18d1b9feec8684cd308",
+      "sha256": "6c69d50aa55fdb95cc2944a57fa4f400e3eb17fb3ccda34582c0a2093e654d5f"
+    },
+    {
+      "seq": 4,
+      "kind": "failure",
+      "elapsed_s": 1.516,
+      "data": {
+        "message": "ContractError: Artifact columns do not match the metric contract"
+      },
+      "previous": "6c69d50aa55fdb95cc2944a57fa4f400e3eb17fb3ccda34582c0a2093e654d5f",
+      "sha256": "8ae7c44b782cbc8a82422bad290dffcf467738aa27580bc5d2b96fb94d07ee45"
+    },
+    {
+      "seq": 5,
+      "kind": "decision",
+      "elapsed_s": 1.531,
+      "data": {
+        "step": 2,
+        "action": {
+          "action": "stop"
+        },
+        "policy": {
+          "name": "strict (no recovery baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "8ae7c44b782cbc8a82422bad290dffcf467738aa27580bc5d2b96fb94d07ee45",
+      "sha256": "22ed1be09247198c8595984c4c9bb1ce67da121b1328772c067a5a39c20829ad"
+    }
+  ]
+}

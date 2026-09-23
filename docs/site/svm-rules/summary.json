@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "id": "svm",
+  "title": "RBF SVM · handwritten digits",
+  "scope": "Method-transfer demo on a different small dataset; not a replication of the cited paper's reported tables. Artifact path/column drift is intentionally injected. Acceptance bounds are this demo's engineering checks, not paper claims.",
+  "source": "https://doi.org/10.1007/BF00994018",
+  "status": "verified",
+  "policy": "rules (deterministic baseline)",
+  "created_utc": "2026-09-23T07:49:36.649104+00:00",
+  "result": {
+    "metric": "accuracy",
+    "value": 0.98,
+    "n": 450,
+    "acceptance": {
+      "min": 0.9,
+      "max": 1.0
+    },
+    "passed": true,
+    "truth_sha256": "ff35d649673ab8eabed7918642d2be0116cd566e85e0a579ab177ce36df75de3",
+    "artifact_sha256": "0a73f73d323f4dd0204d781895b91a47bc95b4101977873b7164c3c60891e7e8"
+  },
+  "failure": null,
+  "binding": {
+    "path": "predictions.csv",
+    "columns": {
+      "id": "id",
+      "prediction": "prediction"
+    }
+  },
+  "protocol_sha256": "d8e72caf5ecee4b9a5f705f34a3f30ab6a834d7cd9088cc2ef605885e9aa72aa",
+  "trace_head": "7597d304839b313a897c0b7a43f6fd826f8b8b60bc9914329f415efa25074dcf",
+  "elapsed_s": 1.532,
+  "events": [
+    {
+      "seq": 0,
+      "kind": "intake",
+      "elapsed_s": 0.0,
+      "data": {
+        "protocol_sha256": "d8e72caf5ecee4b9a5f705f34a3f30ab6a834d7cd9088cc2ef605885e9aa72aa",
+        "inputs": {
+          "experiment.py": "afd989328ebc66389fc518e0342027a20c87527f1f70ae3119b154aaebfbb7d2",
+          "train.csv": "5f4314e3ed9f88a6a87869b3c969df1c6066a9b286ee1750cfc91d7ed49d5cf1",
+          "calibration.csv": "c7259478af73ffd98b2e0f1adb39fe65444eca972850730a9ade8476dbcc2385",
+          "test.csv": "01b947c70890ccede9d3ab5c4339c030b06506c4ca577d0f2337ff89a6eb1765"
+        },
+        "truth_sha256": "ff35d649673ab8eabed7918642d2be0116cd566e85e0a579ab177ce36df75de3"
+      },
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sha256": "3832f0487b16a514f16a5d002a6d497dc85cbc117061f0e8f5411f557e29a42a"
+    },
+    {
+      "seq": 1,
+      "kind": "decision",
+      "elapsed_s": 0.016,
+      "data": {
+        "step": 0,
+        "action": {
+          "action": "execute"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "3832f0487b16a514f16a5d002a6d497dc85cbc117061f0e8f5411f557e29a42a",
+      "sha256": "d443fb447a3de9b8e0528b66d328da3b4ebe09fc40de8ddf51c071c51d9938b8"
+    },
+    {
+      "seq": 2,
+      "kind": "execution",
+      "elapsed_s": 1.516,
+      "data": {
+        "argv": [
+          "{python}",
+          "experiment.py",
+          "svm"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "292f6408bd51a9c9ff6f776fa987c5adc9510f453e02d83a07dab96415a73c54",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "previous": "d443fb447a3de9b8e0528b66d328da3b4ebe09fc40de8ddf51c071c51d9938b8",
+      "sha256": "fbe1b44a3260b573af9ba317fe019df328966932d77866fcb38b63dea0a741d1"
+    },
+    {
+      "seq": 3,
+      "kind": "decision",
+      "elapsed_s": 1.516,
+      "data": {
+        "step": 1,
+        "action": {
+          "action": "verify"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "fbe1b44a3260b573af9ba317fe019df328966932d77866fcb38b63dea0a741d1",
+      "sha256": "658ec2b925fcf66d81afaeb145dc28e0118171770f519bd64613c74c14df442a"
+    },
+    {
+      "seq": 4,
+      "kind": "verification",
+      "elapsed_s": 1.532,
+      "data": {
+        "metric": "accuracy",
+        "value": 0.98,
+        "n": 450,
+        "acceptance": {
+          "min": 0.9,
+          "max": 1.0
+        },
+        "passed": true,
+        "truth_sha256": "ff35d649673ab8eabed7918642d2be0116cd566e85e0a579ab177ce36df75de3",
+        "artifact_sha256": "0a73f73d323f4dd0204d781895b91a47bc95b4101977873b7164c3c60891e7e8"
+      },
+      "previous": "658ec2b925fcf66d81afaeb145dc28e0118171770f519bd64613c74c14df442a",
+      "sha256": "e8d186e604a36554f330965221a67b31d29f936aff87082bdadb76567aec588f"
+    },
+    {
+      "seq": 5,
+      "kind": "decision",
+      "elapsed_s": 1.532,
+      "data": {
+        "step": 2,
+        "action": {
+          "action": "stop"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "e8d186e604a36554f330965221a67b31d29f936aff87082bdadb76567aec588f",
+      "sha256": "7597d304839b313a897c0b7a43f6fd826f8b8b60bc9914329f415efa25074dcf"
+    }
+  ]
+}

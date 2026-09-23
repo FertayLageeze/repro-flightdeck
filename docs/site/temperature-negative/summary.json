@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "id": "temperature-negative",
+  "title": "Temperature scaling · binary digits · injected wrong output",
+  "scope": "Method-transfer demo on a different small dataset; not a replication of the cited paper's reported tables. Artifact path/column drift is intentionally injected. Acceptance bounds are this demo's engineering checks, not paper claims.",
+  "source": "https://proceedings.mlr.press/v70/guo17a.html",
+  "status": "unresolved",
+  "policy": "rules (deterministic baseline)",
+  "created_utc": "2026-09-23T07:49:28.445016+00:00",
+  "result": {
+    "metric": "nll",
+    "value": 27.20605119278735,
+    "n": 90,
+    "acceptance": {
+      "min": 0,
+      "max": 0.35
+    },
+    "passed": false,
+    "truth_sha256": "e9da507bd361e1c3945d90c7b6d52d470a86f0bb46d247db749d7868da41f707",
+    "artifact_sha256": "241c16e68e1d3e410d5adb41cd7b9d6009544718f18c3805352d2e8d09112ac4"
+  },
+  "failure": null,
+  "binding": {
+    "path": "exports/calibrated.csv",
+    "columns": {
+      "id": "sample_id",
+      "probability": "positive_probability"
+    }
+  },
+  "protocol_sha256": "278666ee47d34b514155f69406dcf6409d963e27a573ab35905f26ce5b9dd492",
+  "trace_head": "aa300d0b8189dd33bf02be8b88518db38b8f9357fe558273a45e16dba177faf9",
+  "elapsed_s": 1.593,
+  "events": [
+    {
+      "seq": 0,
+      "kind": "intake",
+      "elapsed_s": 0.0,
+      "data": {
+        "protocol_sha256": "278666ee47d34b514155f69406dcf6409d963e27a573ab35905f26ce5b9dd492",
+        "inputs": {
+          "experiment.py": "afd989328ebc66389fc518e0342027a20c87527f1f70ae3119b154aaebfbb7d2",
+          "train.csv": "d60a79921c2d3c238215d4bb793b6419161346349429e9dbbc6468aa94cae924",
+          "calibration.csv": "1246c16e18ea77b3bc39ee28a441eb0f3d7c1dc5db37b398d014df6881d15810",
+          "test.csv": "602b6728e1e4614c00a5144cf4a29fa04997b09030550a8edc724ea6b166c7af"
+        },
+        "truth_sha256": "e9da507bd361e1c3945d90c7b6d52d470a86f0bb46d247db749d7868da41f707"
+      },
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sha256": "586821b68f84bdd7162be6e5ae93703bb1375ade3eabdba020cce2f5e5d435d1"
+    },
+    {
+      "seq": 1,
+      "kind": "decision",
+      "elapsed_s": 0.015,
+      "data": {
+        "step": 0,
+        "action": {
+          "action": "execute"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "586821b68f84bdd7162be6e5ae93703bb1375ade3eabdba020cce2f5e5d435d1",
+      "sha256": "19a14486e7f7007c52cf3b8a8cb381ecfa992883a963d4278fd34d6d325c30cb"
+    },
+    {
+      "seq": 2,
+      "kind": "execution",
+      "elapsed_s": 1.562,
+      "data": {
+        "argv": [
+          "{python}",
+          "experiment.py",
+          "temperature",
+          "--broken"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "513f5aa9e3889c7152ede1cd4b0040dd15776532c089dad915d24aa78610a9e9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "previous": "19a14486e7f7007c52cf3b8a8cb381ecfa992883a963d4278fd34d6d325c30cb",
+      "sha256": "91d9f15030d99f268832a9ced5e09231b14cfa95e2b711b7fe7130690c320b43"
+    },
+    {
+      "seq": 3,
+      "kind": "decision",
+      "elapsed_s": 1.562,
+      "data": {
+        "step": 1,
+        "action": {
+          "action": "verify"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "91d9f15030d99f268832a9ced5e09231b14cfa95e2b711b7fe7130690c320b43",
+      "sha256": "95f1dd86d08c487059ec147f8e1ef7b159a70d85d1dac9d859e8bb02b9d33b6e"
+    },
+    {
+      "seq": 4,
+      "kind": "failure",
+      "elapsed_s": 1.562,
+      "data": {
+        "message": "FileNotFoundError: [WinError 2] 系统找不到指定的文件。: '$RUN\\\\workspace\\\\probabilities.csv'"
+      },
+      "previous": "95f1dd86d08c487059ec147f8e1ef7b159a70d85d1dac9d859e8bb02b9d33b6e",
+      "sha256": "d72699c99fb69911d0195ff811d5baf37d87620c9f6eaa6e2f988793568c6e3c"
+    },
+    {
+      "seq": 5,
+      "kind": "decision",
+      "elapsed_s": 1.562,
+      "data": {
+        "step": 2,
+        "action": {
+          "action": "discover"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "d72699c99fb69911d0195ff811d5baf37d87620c9f6eaa6e2f988793568c6e3c",
+      "sha256": "3b06fdfd820ac5cd8e798f4a36c1704cb375f8b05bba9335cd9e1dfb53f952d0"
+    },
+    {
+      "seq": 6,
+      "kind": "discovery",
+      "elapsed_s": 1.578,
+      "data": {
+        "candidates": [
+          {
+            "path": "exports/calibrated.csv",
+            "columns": [
+              "sample_id",
+              "positive_probability"
+            ],
+            "rows": 90
+          }
+        ]
+      },
+      "previous": "3b06fdfd820ac5cd8e798f4a36c1704cb375f8b05bba9335cd9e1dfb53f952d0",
+      "sha256": "84d0d66d6dbcd5a85c532c36225b16c9db8e504cd88039b60f7f0e3a2cf9d1ba"
+    },
+    {
+      "seq": 7,
+      "kind": "decision",
+      "elapsed_s": 1.578,
+      "data": {
+        "step": 3,
+        "action": {
+          "action": "bind",
+          "path": "exports/calibrated.csv",
+          "columns": {
+            "id": "sample_id",
+            "probability": "positive_probability"
+          }
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "84d0d66d6dbcd5a85c532c36225b16c9db8e504cd88039b60f7f0e3a2cf9d1ba",
+      "sha256": "91434cedd0386044198c4ecacca444d9cebfb9621571865dba063c385326921a"
+    },
+    {
+      "seq": 8,
+      "kind": "binding_repair",
+      "elapsed_s": 1.578,
+      "data": {
+        "before": {
+          "path": "probabilities.csv",
+          "columns": {
+            "id": "id",
+            "probability": "probability"
+          }
+        },
+        "after": {
+          "path": "exports/calibrated.csv",
+          "columns": {
+            "id": "sample_id",
+            "probability": "positive_probability"
+          }
+        }
+      },
+      "previous": "91434cedd0386044198c4ecacca444d9cebfb9621571865dba063c385326921a",
+      "sha256": "8e1cbe94473c8055532ff2182cab0c1ffc3e20abe940f2c425520519934adc8a"
+    },
+    {
+      "seq": 9,
+      "kind": "decision",
+      "elapsed_s": 1.578,
+      "data": {
+        "step": 4,
+        "action": {
+          "action": "verify"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "8e1cbe94473c8055532ff2182cab0c1ffc3e20abe940f2c425520519934adc8a",
+      "sha256": "d9f02b2a037f43a0e3a460b3744de984a2d933a824aaaa25b9ca00de22d17426"
+    },
+    {
+      "seq": 10,
+      "kind": "verification",
+      "elapsed_s": 1.578,
+      "data": {
+        "metric": "nll",
+        "value": 27.20605119278735,
+        "n": 90,
+        "acceptance": {
+          "min": 0,
+          "max": 0.35
+        },
+        "passed": false,
+        "truth_sha256": "e9da507bd361e1c3945d90c7b6d52d470a86f0bb46d247db749d7868da41f707",
+        "artifact_sha256": "241c16e68e1d3e410d5adb41cd7b9d6009544718f18c3805352d2e8d09112ac4"
+      },
+      "previous": "d9f02b2a037f43a0e3a460b3744de984a2d933a824aaaa25b9ca00de22d17426",
+      "sha256": "5a065343ac92f1b2aa60057c44ed6b8ecf4e28744e07685af10df22d6962e508"
+    },
+    {
+      "seq": 11,
+      "kind": "decision",
+      "elapsed_s": 1.593,
+      "data": {
+        "step": 5,
+        "action": {
+          "action": "stop"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "5a065343ac92f1b2aa60057c44ed6b8ecf4e28744e07685af10df22d6962e508",
+      "sha256": "aa300d0b8189dd33bf02be8b88518db38b8f9357fe558273a45e16dba177faf9"
+    }
+  ]
+}

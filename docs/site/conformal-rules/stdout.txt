@@ -1,0 +1,1 @@
+{"artifact": "intervals.csv", "rows": 111, "injected_semantic_failure": false}

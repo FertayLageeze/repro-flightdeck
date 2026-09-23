@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "id": "conformal-negative",
+  "title": "Split conformal · diabetes regression · injected wrong output",
+  "scope": "Method-transfer demo on a different small dataset; not a replication of the cited paper's reported tables. Artifact path/column drift is intentionally injected. Acceptance bounds are this demo's engineering checks, not paper claims.",
+  "source": "https://arxiv.org/abs/2107.07511",
+  "status": "unresolved",
+  "policy": "rules (deterministic baseline)",
+  "created_utc": "2026-09-23T07:49:33.308411+00:00",
+  "result": {
+    "metric": "coverage",
+    "value": 0.0,
+    "n": 111,
+    "acceptance": {
+      "min": 0.8,
+      "max": 1.0
+    },
+    "passed": false,
+    "truth_sha256": "e6524246e0893e7ce40eef30e39f6bbb81113fae98b0cd15f2df146e92a2ec29",
+    "artifact_sha256": "69c5eadf874c13bde6f1fe7976f3fd271d95a742bac0e459bd11d966eb885cd9"
+  },
+  "failure": null,
+  "binding": {
+    "path": "intervals.csv",
+    "columns": {
+      "id": "id",
+      "lower": "interval_low",
+      "upper": "interval_high"
+    }
+  },
+  "protocol_sha256": "7de661c2f25ec3671cb1755050077f7e5da465851f218b05b7c77bfbe419c5c9",
+  "trace_head": "7fae9a976692b22952858090dac35a41941ad67158232e328c713a9b8d655446",
+  "elapsed_s": 1.516,
+  "events": [
+    {
+      "seq": 0,
+      "kind": "intake",
+      "elapsed_s": 0.0,
+      "data": {
+        "protocol_sha256": "7de661c2f25ec3671cb1755050077f7e5da465851f218b05b7c77bfbe419c5c9",
+        "inputs": {
+          "experiment.py": "afd989328ebc66389fc518e0342027a20c87527f1f70ae3119b154aaebfbb7d2",
+          "train.csv": "927137a16e4fd9cd53b7bc800ffb4d7a9f1ed70905d07ef7eeb17e1e5b0c6042",
+          "calibration.csv": "c64df5dedc92b35f59f7c0c6bd37a7a9134d9000cd1023ef29ccbd61c842122f",
+          "test.csv": "b25854475daad5efca52f1d263c6e0d10e55610d4fd531b44dd8d91ab32c0665"
+        },
+        "truth_sha256": "e6524246e0893e7ce40eef30e39f6bbb81113fae98b0cd15f2df146e92a2ec29"
+      },
+      "previous": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sha256": "f1612c726e1e8f36881a85d48bb54ff01b3a836acf70f7595e7d1be80ffa78c2"
+    },
+    {
+      "seq": 1,
+      "kind": "decision",
+      "elapsed_s": 0.0,
+      "data": {
+        "step": 0,
+        "action": {
+          "action": "execute"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "f1612c726e1e8f36881a85d48bb54ff01b3a836acf70f7595e7d1be80ffa78c2",
+      "sha256": "a3becf6894428bd013677430de85e63267e4e22128ac768060ced7e5b7e330de"
+    },
+    {
+      "seq": 2,
+      "kind": "execution",
+      "elapsed_s": 1.485,
+      "data": {
+        "argv": [
+          "{python}",
+          "experiment.py",
+          "conformal",
+          "--broken"
+        ],
+        "exit_code": 0,
+        "stdout_sha256": "8193dbb6fb8234e8d7a7c9d455aeeb7f4cf074ee4daef477ba67981843c962d3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "previous": "a3becf6894428bd013677430de85e63267e4e22128ac768060ced7e5b7e330de",
+      "sha256": "bfa27322374f87490f13a508a474cd9b4f5586e07235139192fcb9c88ef53a2e"
+    },
+    {
+      "seq": 3,
+      "kind": "decision",
+      "elapsed_s": 1.485,
+      "data": {
+        "step": 1,
+        "action": {
+          "action": "verify"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "bfa27322374f87490f13a508a474cd9b4f5586e07235139192fcb9c88ef53a2e",
+      "sha256": "15fc5970e0ce09e83d7d699c8647a261ebbd308ad0a4fbe689a140e0cfc872c0"
+    },
+    {
+      "seq": 4,
+      "kind": "failure",
+      "elapsed_s": 1.5,
+      "data": {
+        "message": "ContractError: Artifact columns do not match the metric contract"
+      },
+      "previous": "15fc5970e0ce09e83d7d699c8647a261ebbd308ad0a4fbe689a140e0cfc872c0",
+      "sha256": "9c22d27a0d9d8b2217d9cfec9bf46dd4fc61324d134fd05de4db44458f1bfce7"
+    },
+    {
+      "seq": 5,
+      "kind": "decision",
+      "elapsed_s": 1.5,
+      "data": {
+        "step": 2,
+        "action": {
+          "action": "discover"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "9c22d27a0d9d8b2217d9cfec9bf46dd4fc61324d134fd05de4db44458f1bfce7",
+      "sha256": "7fc33e6fa217efc482928dd036e8f6b4390b986d2769c6c61f495ff20e724bb0"
+    },
+    {
+      "seq": 6,
+      "kind": "discovery",
+      "elapsed_s": 1.5,
+      "data": {
+        "candidates": [
+          {
+            "path": "intervals.csv",
+            "columns": [
+              "id",
+              "interval_low",
+              "interval_high"
+            ],
+            "rows": 111
+          }
+        ]
+      },
+      "previous": "7fc33e6fa217efc482928dd036e8f6b4390b986d2769c6c61f495ff20e724bb0",
+      "sha256": "fa4327aecdb8f6c631180de328600135180f42d9bbe6d46776cef4a5f0f19c17"
+    },
+    {
+      "seq": 7,
+      "kind": "decision",
+      "elapsed_s": 1.5,
+      "data": {
+        "step": 3,
+        "action": {
+          "action": "bind",
+          "path": "intervals.csv",
+          "columns": {
+            "id": "id",
+            "lower": "interval_low",
+            "upper": "interval_high"
+          }
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "fa4327aecdb8f6c631180de328600135180f42d9bbe6d46776cef4a5f0f19c17",
+      "sha256": "b78400a6c2a0f712e7d5eedc2b8e08b9223e996debe0cf7059c49ffc84d27779"
+    },
+    {
+      "seq": 8,
+      "kind": "binding_repair",
+      "elapsed_s": 1.5,
+      "data": {
+        "before": {
+          "path": "intervals.csv",
+          "columns": {
+            "id": "id",
+            "lower": "lower",
+            "upper": "upper"
+          }
+        },
+        "after": {
+          "path": "intervals.csv",
+          "columns": {
+            "id": "id",
+            "lower": "interval_low",
+            "upper": "interval_high"
+          }
+        }
+      },
+      "previous": "b78400a6c2a0f712e7d5eedc2b8e08b9223e996debe0cf7059c49ffc84d27779",
+      "sha256": "f1a7030e58531c74a472b3928dbc75e3aea4afcd253aeb26f8cfee38af3bcfd0"
+    },
+    {
+      "seq": 9,
+      "kind": "decision",
+      "elapsed_s": 1.5,
+      "data": {
+        "step": 4,
+        "action": {
+          "action": "verify"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "f1a7030e58531c74a472b3928dbc75e3aea4afcd253aeb26f8cfee38af3bcfd0",
+      "sha256": "541f46cc373c2d2fcf1083c0ac90070dbc8699bbbebb9d935188d3f685c4195e"
+    },
+    {
+      "seq": 10,
+      "kind": "verification",
+      "elapsed_s": 1.516,
+      "data": {
+        "metric": "coverage",
+        "value": 0.0,
+        "n": 111,
+        "acceptance": {
+          "min": 0.8,
+          "max": 1.0
+        },
+        "passed": false,
+        "truth_sha256": "e6524246e0893e7ce40eef30e39f6bbb81113fae98b0cd15f2df146e92a2ec29",
+        "artifact_sha256": "69c5eadf874c13bde6f1fe7976f3fd271d95a742bac0e459bd11d966eb885cd9"
+      },
+      "previous": "541f46cc373c2d2fcf1083c0ac90070dbc8699bbbebb9d935188d3f685c4195e",
+      "sha256": "cec65deb33d1e497b2f5307c8ccbf258c65a0a11878dea06dbf81182ed64334e"
+    },
+    {
+      "seq": 11,
+      "kind": "decision",
+      "elapsed_s": 1.516,
+      "data": {
+        "step": 5,
+        "action": {
+          "action": "stop"
+        },
+        "policy": {
+          "name": "rules (deterministic baseline)",
+          "live_model": false
+        }
+      },
+      "previous": "cec65deb33d1e497b2f5307c8ccbf258c65a0a11878dea06dbf81182ed64334e",
+      "sha256": "7fae9a976692b22952858090dac35a41941ad67158232e328c713a9b8d655446"
+    }
+  ]
+}
